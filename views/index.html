@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/hadimichael-gest.js-3977062/src/gest.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/Gallery-2.15.2/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="../lib/Bootstrap-Image-Gallery-3.1.1/css/bootstrap-image-gallery.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/controllers/GalleryController.js"></script>
+</head>
+<body ng-app="Gallery">
+<div ng-controller="GalleryController">
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img ng-src="../images/{{images[index]}}" style="width: 100%; height: 100%"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" ng-click="changeImage(index - 1)">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary" ng-click="changeImage(index + 1)">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <ul class="row">
+            <li class="col-md-2" ng-repeat="image in images" style="margin: 0; padding: 0">
+                <img ng-click="openModal($index)" ng-src="../images/{{image}}" style="width: 100%; height: 100%"/>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+<script src="../lib/Gallery-2.15.2/js/jquery.blueimp-gallery.min.js"></script>
+<script src="../lib/Bootstrap-Image-Gallery-3.1.1/js/bootstrap-image-gallery.min.js"></script>
+</html>
